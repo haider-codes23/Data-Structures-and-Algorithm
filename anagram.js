@@ -46,16 +46,6 @@ function validAnagram (str1, str2) {
   let obj1 = frequecnyCounter(str1);
   let obj2 = frequecnyCounter(str2);
 
-
-
-  // for (let i = 0; i < str1.length; i++) {
-  //   obj1[str1[i]] = (obj1[str1[i]] || 0) + 1;
-  // }
-
-  // for (let j = 0; j < str2.length; j++) {
-  //   obj2[str2[j]] = (obj2[str2[j]] || 0) + 1;
-  // }
-
   for (let key in obj1) {
     if (!(key in obj2)) {
       return false;
