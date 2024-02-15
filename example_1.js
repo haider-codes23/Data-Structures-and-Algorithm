@@ -21,11 +21,8 @@ function charCount(str) {
     let condition_two = strInLowerCase.codePointAt(i) >= 48 && strInLowerCase.codePointAt(i) <= 57;
     
     if ( condition_one || condition_two) {
-      if (objCount.hasOwnProperty(strInLowerCase[i])) {
-          objCount[strInLowerCase[i]] = objCount[strInLowerCase[i]] + 1;
-      } else {
-          objCount[strInLowerCase[i]] = 1;
-      }
+      objCount[strInLowerCase[i]] = (objCount[strInLowerCase[i]] || 0) + 1;
+      
     } else {
       continue;
     }
