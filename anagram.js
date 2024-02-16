@@ -8,7 +8,7 @@
 // outupt --> Boolean value true or false
 
 // Concrete Examples
-// Simple Examples
+// Simple Exampes
 // console.log(validAnagram('', '')); // true
 // console.log(validAnagram('aaz', 'zza')); //false
 // console.log(validAnagram('anagram', 'nagaram')) // true
