@@ -43,16 +43,22 @@ function maxSubarraySum(arr, num) {
   let tempSum = 0;
   for (let i = 0; i < num; i++) {
     maxSum += arr[i];
+    console.log(`maxSum: ${maxSum}`);
   }
-
-  for (let i = num; i < arr.lenght; i++) {
-    tempSum = maxSum - arr[i - num] + arr[i];
+  console.log("exiting first loop");
+  tempSum = maxSum;
+  for (let j = num; j < arr.lenght; j++) {
+    console.log('Entered 2nd For loop');
+    tempSum = tempSum - arr[j - num] + arr[j];
     maxSum = Math.max(maxSum, temp);
+    console.log(`maxSum: ${maxSum} + tempSum: {tempSum}`);
+    console.log("----------------------------------------");
   }
 
   return maxSum;
 
-  console.log(temp);
+  //console.log(temp);
 }
 
 console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3] ,3));
+//console.log(maxSubarraySum([-3,4,0,-2,6,-1], 2));
