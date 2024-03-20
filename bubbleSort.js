@@ -9,7 +9,10 @@
 // - So for each iteration of the outer loop we get one element that is sorted into it's place and in the next iteration
 //   of the inner loop we need to sort one less element, the way we can do that is start our outer loop from the end 
 //   of the array and start our inner loop from the begining till 1 less than from where the outer loop started, so each time
-//   inner loop is exected for the outer loop we have one less element to compare.
+//   inner loop is exected for the outer loop we have one less element to compare and the reason why we start our outer 
+//   loop from the end is because we could use i(index) in the defintion of our inner loop, each time outer loop finishes 
+//   one iteration it's value decreases by 1 and the inner loop also each time has to go through one less iteration. We want to shrink the number
+//   of comparsions we are making becasue we are sorting our array as we go
 
 function bubbleSort_1(arr) {
   for (let i = 0; i < arr.length; i++){
@@ -25,20 +28,60 @@ function bubbleSort_1(arr) {
   }
 }
 
-console.log(bubbleSort_1([37, 45, 29, 8]));
+//console.log(bubbleSort_1([37, 45, 29, 8]));
 
 //-------------------------------------------------------------------------
 
 function bubbleSort (arr) {
   let temp = 0;
+  let noSwaps;
   for (let i = arr.length; i > 0; i--) {
+    noSwaps = true;
     for (let j = 0; j < i - 1; j++) {
+      console.log(`Before Sorting: ${arr}`);
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        console.log(`After Sorting: ${arr}`);
+        noSwaps = false; // this will only be false if a swap is made
       }
+
     }
+    if (noSwaps) {
+      console.log("Breaking!");
+      break;
+    }
+    console.log(`pass completed`);
   }
   return arr;
 }
 
-//console.log(bubbleSort([29, 10, 14, 30, 37, 14, 18]));
+// console.log(bubbleSort([8, 1, 2, 3, 4, 5, 6]));
+
+// ******************************************************
+function bubbleSort_2 (arr) {
+  let temp = 0;
+  let noSwaps;
+  for (let i = 1; i <= arr.length; i++) {
+    noSwaps = true;
+    for (let j = 0; j < arr.length - i; j++) {
+      console.log(`Before Sorting: [${arr}]  ${arr[j]} && ${arr[j + 1]}`);
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        console.log(`After Sorting: ${arr}`);
+        noSwaps = false; // this will only be false if a swap is made
+      }
+
+    }
+    if (noSwaps) {
+      console.log("Breaking!");
+      break;
+    }
+    console.log(`pass completed`);
+  }
+  return arr;
+}  
+
+console.log(bubbleSort_2([8, 1, 2, 3, 4, 5, 6]));
+
+
+//Wahts the Big O of Buuble sort
