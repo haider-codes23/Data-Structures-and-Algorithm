@@ -59,7 +59,7 @@ function bubbleSort (arr) {
 
 // ******************************************************
 function bubbleSort_2 (arr) {
-  let temp = 0;
+
   let noSwaps;
   for (let i = 1; i <= arr.length; i++) {
     noSwaps = true;
