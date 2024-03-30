@@ -81,7 +81,7 @@ function bubbleSort_2 (arr) {
   return arr;
 }  
 
-console.log(bubbleSort_2([8, 1, 2, 3, 4, 5, 6]));
+console.log(bubbleSort_2([8, 7, 6, 5, 4, 3]));
 
 
 //Wahts the Big O of Buuble sort
