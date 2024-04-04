@@ -19,4 +19,8 @@ function insertionSort(arr) {
   return arr;
 }
 
-console.log(insertionSort([5, 3, 4, 1, 2]));
+//console.log(insertionSort([5, 3, 4, 1, 2]));
+console.log(insertionSort([2, 1, 9, 76, 4]));
+//                         3, 5, 4, 1, 2
+//                         3, 4, 5, 1, 2
+//                         3, 4, 1, 5, 2
