@@ -67,7 +67,7 @@ function merge(firstArr, secondArr) {
 // [4, 3, 1, 2, 7, 5, 6, 8].slice()
 
 function mergeSort(arr) {
-  // This is the base case we will keep splitting and keeping passing the recursive function
+  // This is the base case we will keep splitting and keep passing the recursive function
   // a smaller array or halved array and when we pass the recursive function an array that has either 1
   // element or 0 element then its going to return that array e.g. [4,3,2,1] is the array with which we
   // called our mergeSort function, it's going to split it first into [4, 3] and [2, 1], then it's going
@@ -85,7 +85,7 @@ function mergeSort(arr) {
 
   // let leftHalf = arr.slice(0, midPoint);
   // let rightHalf = arr.slice(midPoint);
-  // Here we split the array into half and then pass the halfed array again to recursive function mergeSort which will
+  // Here we split the array into half and then pass the halved array again to recursive function mergeSort which will
   // further split it into half until the length of the halved array reaches 1 or 0
   let leftHalf = mergeSort(arr.slice(0, midPoint));
   // passed [10, 24, 76, 73]
@@ -101,4 +101,4 @@ function mergeSort(arr) {
 
 }
 
-console.log(mergeSort([10, 24, 76, 73, 5]));
+console.log(mergeSort([10, 24, 76, 73]));
