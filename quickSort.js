@@ -9,7 +9,7 @@ function pivot(arr, startIndex = 0, endIndex = arr.length - 1) {
   let swapIndex = startIndex;
   // Next we need to loop over the items in the array except the first one becasue that is our pivot 
   
-  for (let i = startIndex + 1; i < arr.length; i++) {
+  for (let i = startIndex + 1; i <= endIndex; i++) {
     
     // Here we want to compare our pivot with the  arr[i] the next element we are looking at
     // If our pivot is less than the element we are looking at we'll do nothing
@@ -35,7 +35,45 @@ function pivot(arr, startIndex = 0, endIndex = arr.length - 1) {
   return swapIndex;
 }
 //                 0  1  2  3  4  5  6  7
-console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3]));
+//console.log(pivot([4, 6, 9, 1, 2, 5, 3]));
 //                
 //                
+
+// create a function called quick sort that takes an array as argument 
+function quickSort(arr, startIndex = 0, endIndex = arr.length - 1) {
+  if (startIndex < endIndex) {
+      // At the very start we will call the pivot method and pass it the array, it will be looking at the entire array from fist element till the last element
+    // it will return us the index of the pivot, e.g. the sorted position(index) of the pivot inside the array
+    let pivotIndex = pivot(arr, startIndex, endIndex);
+
+    // when the pivot helper function return the index(sorted position) of the pivot, next thing we are going to do
+    // is call pivot helper function on both sides of the pivot element e.g the left side(subarray to the left of that index)
+    // and the right side(subarray to the right of that index). It's important to know that we are not creating new arrays, we'll be
+    // working with the same array. In this case to call the pivot helper function we will be recursively calling the quickSort function 
+    // which will inturn call the pivot helper function with the array, startIndex and endIndex.
+
+    // Firstly we will recursively call the the quickSort function on the left side of the pivot, now the left side has a start index
+    // and a end index, it starts from the very beginning till the pivot index and pivot index is not included
+    quickSort(arr, startIndex, pivotIndex - 1);
+
+    // secondly we will recursively call the quicksort function on the right side of the pivot, now the right side has a start index and an end index
+    // start index will be index next to the pivotIndex and the end index will be the last element in the array which is the endIndex
+    quickSort(arr, pivotIndex + 1, endIndex);
+
+
+
+    // Our quickSort function is a recursive function so it's going to have a base case, e.g. when the subarray has 1 item in it, becasuse we
+    // will be working with the same array we dont have to check the length of the array, we will looking at the startPoint and endPoint e.g.
+    // when the subarray become samller the startIndex and endIndex  will become closer and closer together e.g. the first time pivot get called
+    // startIndex = 0 and endIndex = 6, when the pivot get called the 2nd time on the right side of the pivot startIndex is 0 and endIndex = 2, when pivot gets called 3rd time 
+    // startIndex is 0 and endIndex = 1 and when pivot get called 4rth time startIndex = 0 and endIndex = 0, so our base case (that we want to keep running this code)
+    // if startIndex < endIndex, the moment leftIndex and rightIndex become equal
+    // 
+  }
+  // In the end we would return the sorted array
+  return arr;
+}
 //                
+console.log(quickSort([4, 6, 9, 1, 2, 5, 3]));
+
+
