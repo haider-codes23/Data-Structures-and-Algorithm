@@ -18,7 +18,7 @@ function pivot(arr, startIndex = 0, endIndex = arr.length - 1) {
     if (pivot > arr[i]) { // 4 > 8(F), 4 > 2(T)
       console.log("***************************************");
       console.log(`Before Swapping ${arr}`);
-      
+      console.log(`Calling Pivot helper ${i}st time`);
       swapIndex++;
       console.log(`Need to swap ${arr[swapIndex]} and ${arr[i]}`);
       [arr[swapIndex], arr[i]] = [arr[i], arr[swapIndex]];
