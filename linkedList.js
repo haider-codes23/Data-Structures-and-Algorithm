@@ -39,6 +39,41 @@ class SinglyLinkedList {
     // And return the linked list
     return this;
   }
+
+  // Implementing traverse method
+  //
+  pop() {
+    // Firstly check if the list is empty or not
+    if (!this.head) {
+      return undefined;
+    }
+    // Otherwise loop through the nodes in the list till you reach the tail node
+    // We start by creating a variable called current and assign it the head Node
+    // Then we create another variable called secondToLastNode and assign it the head node
+    // At the start both current and secondToLastNode will be pointing at the head Node
+    // Then we will loop through and move current one up and check if it is the end of the list
+    // If it's not we are going to move the secondToLastNode one up as well
+    // Then we are going to move current one up again and check if now we have reached the end of the list
+    // if we have reached the end of list we dont move secondToLastNode
+    // Then we are going to remove the node at the current node 
+    // And make our secondToLastNode our new tail
+    // The loop will keep looping until current is not null e.g. when it has reached last node
+    let current = this.head;
+    let secondToLastNode = current;
+    while(current.next) { // while there is a next, it will stop looping when next is null
+      secondToLastNode = current;
+      current = current.next;
+    }
+    this.tail = secondToLastNode;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+      
+    }
+    return current;
+  }
 }
 
 // Create a new list
@@ -47,5 +82,9 @@ let list = new SinglyLinkedList();
 // E.g. if we want to add some value to the end of the list, we will use the push() instance method
 list.push("Hi");
 list.push("Haider");
+list.push("Ibraheem");
+list.push("Yusuf");
+list.push("Musa");
+
+console.log(`Popped: ${list.pop()}`);
 console.log(list);
-//list.push(10);
