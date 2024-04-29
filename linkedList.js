@@ -40,7 +40,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  // Implementing traverse method
+  // Implementing pop method
   //
   pop() {
     // Firstly check if the list is empty or not
@@ -70,21 +70,50 @@ class SinglyLinkedList {
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
-      
+
     }
     return current;
   }
+
+  // implementing shift instance method
+  shift () {
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = this.head.next;
+    this.length--;
+    if (this.length === 0) { // if we remove all the nodes in the list, our tail property is still poinitng at the last node, so just in that case we will make it null
+      this.tail = null;
+    }
+    return current;
+  }
+
+
+
+
+
 }
 
 // Create a new list
 // This list is empty at the moment, it doesn't have any nodes
 let list = new SinglyLinkedList();
 // E.g. if we want to add some value to the end of the list, we will use the push() instance method
-list.push("Hi");
-list.push("Haider");
-list.push("Ibraheem");
-list.push("Yusuf");
-list.push("Musa");
+list.push(1);
+list.push(2);
+list.push(3);
+//list.push(4);
 
-console.log(`Popped: ${list.pop()}`);
+
+//console.log(`Popped: ${list.pop()}`);
+console.log("**********************************************");
+console.log(list);
+console.log(`Shifted once: ${list.shift()}`);
+console.log(list);
+console.log("**********************************************");
+console.log("**********************************************");
+console.log(list);
+console.log(`Shifted twice: ${list.shift()}`);
+console.log(list);
+console.log("**********************************************");
+console.log(list);
+console.log(`Shifted thrice: ${list.shift()}`);
 console.log(list);
