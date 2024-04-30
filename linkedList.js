@@ -153,7 +153,7 @@ class SinglyLinkedList {
 
   // implement remove method
   remove(index) {
-    if (index < 0 || index >= this.length) return false;
+    if (index < 0 || index >= this.length) return undefined;
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
     let counter = 0;
@@ -167,6 +167,23 @@ class SinglyLinkedList {
     secondToSpecifiedNode.next = nodeToBeRemoved.next;
     this.length--;
     return nodeToBeRemoved;
+  }
+
+  // implementing reverse() method
+  reverse() {
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = currentNode.next;
+      currentNode.next = prev;
+      prev = currentNode;
+      currentNode = next;
+
+    }
+    return this;
   }
 
 
@@ -184,10 +201,10 @@ list.push(4);
 
 //list.push(4);
 
-console.log(list);
-console.log("**********************************");
-console.log(list.remove(list.length - 1));
-console.log(list);
+// console.log(list);
+// console.log("**********************************");
+// console.log(list.remove(list.length - 1));
+// console.log(list);
 
 
 // //console.log(`Popped: ${list.pop()}`);
@@ -210,9 +227,12 @@ console.log(list);
 // console.log(list);greater 
 
 // console.log(list.insert(1.5, 2));
-console.log("***********************************");
-console.log(list.head);
-console.log(list.head.next);
-console.log(list.head.next.next);
-console.log(list.head.next.next.next);
-console.log(list.head.next.next.next.next);
+// console.log("***********************************");
+// console.log(list.head);
+// console.log(list.head.next);
+// console.log(list.head.next.next);
+// console.log(list.head.next.next.next);
+// console.log(list.head.next.next.next.next);
+console.log(list);
+console.log("******************");
+console.log(list.reverse());
