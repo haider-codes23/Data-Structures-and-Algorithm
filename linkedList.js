@@ -149,9 +149,24 @@ class SinglyLinkedList {
     secondToSpecifiedNode.next = newNode;
     this.length++;
     return true;
+  }
 
-
-    
+  // implement remove method
+  remove(index) {
+    if (index < 0 || index >= this.length) return false;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+    let counter = 0;
+    let secondToSpecifiedNode = this.head;
+    let nodeToBeRemoved = this.head;
+    while (counter < index) {
+      secondToSpecifiedNode = nodeToBeRemoved;
+      nodeToBeRemoved = nodeToBeRemoved.next;
+      counter++;
+    }
+    secondToSpecifiedNode.next = nodeToBeRemoved.next;
+    this.length--;
+    return nodeToBeRemoved;
   }
 
 
@@ -166,8 +181,13 @@ list.push(1);
 list.push(2);
 list.push(3);
 list.push(4);
-list.push(5);
+
 //list.push(4);
+
+console.log(list);
+console.log("**********************************");
+console.log(list.remove(list.length - 1));
+console.log(list);
 
 
 // //console.log(`Popped: ${list.pop()}`);
@@ -188,7 +208,9 @@ list.push(5);
 // console.log(list.get(3));
 // console.log(list.set(8, 0));
 // console.log(list);greater 
-console.log(list.insert(1.5, 2));
+
+// console.log(list.insert(1.5, 2));
+console.log("***********************************");
 console.log(list.head);
 console.log(list.head.next);
 console.log(list.head.next.next);
