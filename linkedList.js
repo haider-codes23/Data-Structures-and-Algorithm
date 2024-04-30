@@ -114,7 +114,22 @@ class SinglyLinkedList {
     return current;
   }
 
-  // 
+  // implementing set method
+  set (val, index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter < index) {
+      current = current.next;
+      counter++;
+    }
+    if (!current) {
+      return false;
+    } else {
+      current.val = val;
+      return true;
+    }
+  }
 
 
 
@@ -148,5 +163,6 @@ list.push(5);
 // console.log(`Shifted thrice: ${list.shift()}`);
 // console.log(list);
 
+// console.log(list.get(3));
+console.log(list.set(8, 0));
 console.log(list);
-console.log(list.get(3));
