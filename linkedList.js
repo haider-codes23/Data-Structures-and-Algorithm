@@ -134,8 +134,8 @@ class SinglyLinkedList {
   // implementing insert method
   insert(val, index) {
     if (index < 0 || index > this.length) return fasle;
-    if (index === this.length) this.push(val);
-    if (index === 0) this.unshift(val);
+    if (index === this.length) return this.push(val);
+    if (index === 0) return this.unshift(val);
     let newNode = new Node(val);
     let secondToSpecifiedNode = this.head;
     let current = this.head;
@@ -147,7 +147,8 @@ class SinglyLinkedList {
     }
     newNode.next = secondToSpecifiedNode.next;
     secondToSpecifiedNode.next = newNode;
-    return this;
+    this.length++;
+    return true;
 
 
     
