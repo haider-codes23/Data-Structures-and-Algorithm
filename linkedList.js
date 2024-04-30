@@ -102,6 +102,19 @@ class SinglyLinkedList {
     return this;
   }
 
+  // implementing get instance method
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let current = this.head;
+    let counter = 0;
+    for (let i = 0; i < index; i++) {
+      current  = current.next
+    }
+    
+    return current;
+  }
+
+  // 
 
 
 
@@ -111,23 +124,29 @@ class SinglyLinkedList {
 // This list is empty at the moment, it doesn't have any nodes
 let list = new SinglyLinkedList();
 // E.g. if we want to add some value to the end of the list, we will use the push() instance method
+list.push(0);
 list.push(1);
 list.push(2);
 list.push(3);
+list.push(4);
+list.push(5);
 //list.push(4);
 
 
-//console.log(`Popped: ${list.pop()}`);
-console.log("**********************************************");
+// //console.log(`Popped: ${list.pop()}`);
+// console.log("**********************************************");
+// console.log(list);
+// console.log(`Shifted once: ${list.shift()}`);
+// console.log(list);
+// console.log("**********************************************");
+// console.log("**********************************************");
+// console.log(list);
+// console.log(`Shifted twice: ${list.shift()}`);
+// console.log(list);
+// console.log("**********************************************");
+// console.log(list);
+// console.log(`Shifted thrice: ${list.shift()}`);
+// console.log(list);
+
 console.log(list);
-console.log(`Shifted once: ${list.shift()}`);
-console.log(list);
-console.log("**********************************************");
-console.log("**********************************************");
-console.log(list);
-console.log(`Shifted twice: ${list.shift()}`);
-console.log(list);
-console.log("**********************************************");
-console.log(list);
-console.log(`Shifted thrice: ${list.shift()}`);
-console.log(list);
+console.log(list.get(3));
