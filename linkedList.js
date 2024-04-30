@@ -131,6 +131,27 @@ class SinglyLinkedList {
     }
   }
 
+  // implementing insert method
+  insert(val, index) {
+    if (index < 0 || index > this.length) return fasle;
+    if (index === this.length) this.push(val);
+    if (index === 0) this.unshift(val);
+    let newNode = new Node(val);
+    let secondToSpecifiedNode = this.head;
+    let current = this.head;
+    let counter = 0;
+    while (counter < index) {
+      secondToSpecifiedNode = current;
+      current = current.next;
+      counter++;
+    }
+    newNode.next = secondToSpecifiedNode.next;
+    secondToSpecifiedNode.next = newNode;
+    return this;
+
+
+    
+  }
 
 
 }
@@ -164,5 +185,11 @@ list.push(5);
 // console.log(list);
 
 // console.log(list.get(3));
-console.log(list.set(8, 0));
-console.log(list);
+// console.log(list.set(8, 0));
+// console.log(list);greater 
+console.log(list.insert(1.5, 2));
+console.log(list.head);
+console.log(list.head.next);
+console.log(list.head.next.next);
+console.log(list.head.next.next.next);
+console.log(list.head.next.next.next.next);
