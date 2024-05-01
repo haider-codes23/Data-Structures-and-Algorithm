@@ -63,6 +63,23 @@ class DoublyLinkedList {
     return removedNode;
   }
 
+  // implementing unshift method
+  unshift(val) {
+    let newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      let oldHead = this.head;
+      this.head = newNode;
+      newNode.next = oldHead;
+      oldHead.prev = newNode;
+
+    }
+    this.length++;
+    return this;
+  }
+
 
 
 
@@ -71,6 +88,17 @@ class DoublyLinkedList {
 let list = new DoublyLinkedList();
 list.push(1)
 list.push(2)
-console.log(list.push(3));
+list.push(3);
+console.log("****************************");
+console.log(list.unshift(0));
+console.log("****************************");
+console.log(list.head);
+console.log("****************************");
+console.log(list.head.next.next);
+console.log("****************************");
+console.log(list.head.next.next.next)
+console.log("****************************");
+console.log(list.head.next.next.next.next);
+console.log("****************************");
 
 
