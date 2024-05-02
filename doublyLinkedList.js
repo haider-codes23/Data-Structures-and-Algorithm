@@ -105,6 +105,67 @@ class DoublyLinkedList {
     return current;
   }
 
+  //implementing set instance method
+  set(val, index) {
+    if (index < 0 || index >= this.length) return null;
+    let midpoint = this.length - 1 / 2;
+    let counter, current;
+    if (index < midpoint) {
+      counter = 0;
+      current = this.head;
+      while (counter < index) {
+        current = current.next;
+        counter++;
+      }
+      current.val = val;
+      return true;
+    } else {
+        counter = this.length - 1
+        current = this.tail;
+        while (counter > index) {
+          current = current.prev;
+          counter--;
+        }
+        current.val = val;
+        return true;
+    }
+    return false;
+  }
+
+  // implementing insert instance method
+  insert(val, index) {
+    let newNode = new Node(val);
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    let current = this.get(index);
+    let beforeNode = current.prev;
+    newNode.next = beforeNode.next;
+    current.prev = newNode;
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    this.length++;
+    return this;
+  }
+
+  //implementing remove instance method
+  remove (index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return !!this.shift();
+    if (index === this.length - 1) return !!this.pop();
+
+    let nodeToRemove = this.get(index);
+    let beforeNode = nodeToRemove.prev;
+    let afterNode = nodeToRemove.next;
+
+    beforeNode.next = nodeToRemove.next;
+    afterNode.prev = nodeToRemove.prev;
+
+    return nodeToRemove;
+
+  }
+
+
 
 
 
@@ -118,14 +179,18 @@ list.push(4);
 list.push(5);
 // console.log("****************************");
 // console.log(list.unshift(0));
-// console.log("****************************");
-// console.log(list.head);
-// console.log("****************************");
-// console.log(list.head.next.next);
-// console.log("****************************");
-// console.log(list.head.next.next.next)
-// console.log("****************************");
-// console.log(list.head.next.next.next.next);
-// console.log("****************************");
-console.log(list.get(4));
+console.log(list.remove(2));
+console.log("****************************");
+console.log(list.head);
+console.log("****************************");
+console.log(list.head.next);
+console.log("****************************");
+console.log(list.head.next.next)
+console.log("****************************");
+console.log(list.head.next.next.next);
+console.log("****************************");
+// console.log(list.get(4));
+// // console.log(list.set(54, 3));
+// console.log("***************************");
+// console.log(list.get(3));
 
