@@ -80,25 +80,52 @@ class DoublyLinkedList {
     return this;
   }
 
+  // implementing get method 
+  get (index) {
+    if (index < 0 || index >= this.length ) return null;
+    let midPoint = (this.length - 1) / 2
+    let counter;
+    let current;
+
+    if (index < midPoint){
+      counter = 0
+      current = this.head;
+      while (counter < index) {
+        current = current.next;
+        counter++;
+      }
+    } else {
+      counter = this.length - 1;  
+      current = this.tail;
+      while(counter > index) {
+        current = current.prev;
+        counter--;
+      }
+    }
+    return current;
+  }
+
 
 
 
 }
 
 let list = new DoublyLinkedList();
-list.push(1)
-list.push(2)
-list.push(3);
-console.log("****************************");
-console.log(list.unshift(0));
-console.log("****************************");
-console.log(list.head);
-console.log("****************************");
-console.log(list.head.next.next);
-console.log("****************************");
-console.log(list.head.next.next.next)
-console.log("****************************");
-console.log(list.head.next.next.next.next);
-console.log("****************************");
-
+list.push(1);
+list.push(2);
+list.push(3);//
+list.push(4);
+list.push(5);
+// console.log("****************************");
+// console.log(list.unshift(0));
+// console.log("****************************");
+// console.log(list.head);
+// console.log("****************************");
+// console.log(list.head.next.next);
+// console.log("****************************");
+// console.log(list.head.next.next.next)
+// console.log("****************************");
+// console.log(list.head.next.next.next.next);
+// console.log("****************************");
+console.log(list.get(4));
 
