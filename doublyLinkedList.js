@@ -161,12 +161,35 @@ class DoublyLinkedList {
     beforeNode.next = nodeToRemove.next;
     afterNode.prev = nodeToRemove.prev;
 
+    nodeToRemove.next = null;
+    nodeToRemove.prev = null;
+    this.length--;
+
     return nodeToRemove;
 
   }
 
-
-
+   // implementing reverse instance method
+   reverse() {
+    if (!this.head) return false;
+    let current = this.head;
+    // swap the head and tail
+    this.head = this.tail;
+    this.tail = current;
+    // loop over the list
+    for (let i = 0; i < this.length; i++) {
+      //store the previous and next of current node
+      let prev = current.prev;
+      let next = current.next;
+      // once we have stored the previous and next of the current node
+      // we are going to use them e.g. swap the each nodes previous with next
+      current.prev = next;
+      current.next = prev;
+      // at last move current one ahead
+      current = next;
+    }
+    return this;
+  }
 
 
 }
@@ -179,7 +202,7 @@ list.push(4);
 list.push(5);
 // console.log("****************************");
 // console.log(list.unshift(0));
-console.log(list.remove(2));
+console.log(list.reverse());
 console.log("****************************");
 console.log(list.head);
 console.log("****************************");
