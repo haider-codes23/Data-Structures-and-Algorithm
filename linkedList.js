@@ -186,7 +186,6 @@ class SinglyLinkedList {
     return this;
   }
 
-
 }
 
 // Create a new list
