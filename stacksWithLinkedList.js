@@ -37,7 +37,7 @@ class Stack {
   pop() {
     if (!this.head) return null;
     let nodeToBeRemoved = this.head;
-    if (this.length = 1) {
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
