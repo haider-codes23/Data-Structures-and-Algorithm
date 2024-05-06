@@ -147,6 +147,21 @@ class BinarySearchTree {
       traverse(current);
       return visited;
      } 
+
+     // implemented In order for depth first search
+     inorderDepthFirstSearch() {
+      let current = this.root;
+      let visited = [];
+      function traverse(node) {
+        if (node.left) traverse(node.left);
+        visited.push(node.val);
+        if (node.right) traverse(node.right);
+
+      }
+      traverse(current);
+      return visited;
+      
+     }
     
     
   }
@@ -162,7 +177,7 @@ tree.insert(20);
 // console.log(tree.find(21));
 // console.log(tree);
 // console.log(tree.preOrderDepthFirstSeach());
-console.log(tree.postOrderDepthFirstSearch());
+console.log(tree.inorderDepthFirstSearch());
 
 
 
