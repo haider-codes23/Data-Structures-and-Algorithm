@@ -114,6 +114,39 @@ class BinarySearchTree {
     
      }
     
+     // implementing Depth First Search 
+     // Implementing Preorder
+     preOrderDepthFirstSeach() {
+      // stores all the nodes that have been visited
+      let visited = [];
+      // stores the root node
+      let current = this.root;
+      //helper function that accepts a node as argument 
+      function traverse(node) {
+        visited.push(node.val);
+        if (node.left) {
+           traverse(node.left);
+        }
+        if (node.right) {
+         traverse(node.right);
+        }
+      }
+      traverse(current);
+      return visited;
+     }
+
+     // implementing Post Order Depth First Search
+     postOrderDepthFirstSearch () {
+      let visited = [];
+      let current = this.root;
+      function traverse(node) {
+        if (node.left) traverse(node.left);
+        if (node.right) traverse(node.right);
+        visited.push(node.val);
+      }
+      traverse(current);
+      return visited;
+     } 
     
     
   }
@@ -121,16 +154,15 @@ class BinarySearchTree {
 let tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(6);
-tree.insert(15);
 tree.insert(3);
 tree.insert(8);
-tree.insert(9);
-tree.insert(13);
+tree.insert(15);
 tree.insert(20);
 
 // console.log(tree.find(21));
-console.log(tree);
-console.log(tree.breadthFirstSearch());
+// console.log(tree);
+// console.log(tree.preOrderDepthFirstSeach());
+console.log(tree.postOrderDepthFirstSearch());
 
 
 
