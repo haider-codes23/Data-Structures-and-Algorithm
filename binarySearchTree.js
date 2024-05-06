@@ -75,18 +75,49 @@ class BinarySearchTree {
             } else {
               current = current.right;
             }
+          }
         }
       }
+      
     }
     
+    
+    // implementing Breadth First Search method
+    breadthFirstSearch () {
+      let queue = [];
+      // place the root node in the queue
+      // create a variable called node and store the root node in it
+      let node  = this.root;
+      // add the root node into the queue
+      queue.push(node);
+      // Create a list to store the nodes that have been visited
+      let visited  = [];
+      // Create a loop that goes as long as there is anything in the queue
+      while (queue.length !== 0) {
+        // Dequeue a node from the queue and push it into the visited list 
+        node = queue.shift();
+        visited.push(node.val);
+        // Check if there is a left property on the node dequeued, if it has 
+        // add it to the queue
+        if (node.left) {
+          queue.push(node.left);
+        }
+        // Check if there is a right property on the node dequeued, if it has add it to the queue
+        if (node.right) {
+          queue.push(node.right);
+        }
+    
+        
+      }
+      // return the visited list 
+      return visited;
+    
+     }
+    
+    
+    
   }
-
-
-
-
-
-}
-
+  
 let tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(6);
@@ -97,7 +128,10 @@ tree.insert(9);
 tree.insert(13);
 tree.insert(20);
 
-console.log(tree.find(21))
+// console.log(tree.find(21));
+console.log(tree);
+console.log(tree.breadthFirstSearch());
+
 
 
 
