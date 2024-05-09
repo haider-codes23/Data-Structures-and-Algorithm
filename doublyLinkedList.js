@@ -199,10 +199,15 @@ list.push(1);
 list.push(2);
 list.push(3);//
 list.push(4);
-list.push(5);
+// list.push(5);
 // console.log("****************************");
 // console.log(list.unshift(0));
-console.log(list.reverse());
+// console.log(list.reverse());
+// console.log(list.get(4));
+// // console.log(list.set(54, 3));
+// console.log("***************************");
+// console.log(list.get(3));
+console.log(list.insert(1.5, 1));
 console.log("****************************");
 console.log(list.head);
 console.log("****************************");
@@ -212,8 +217,4 @@ console.log(list.head.next.next)
 console.log("****************************");
 console.log(list.head.next.next.next);
 console.log("****************************");
-// console.log(list.get(4));
-// // console.log(list.set(54, 3));
-// console.log("***************************");
-// console.log(list.get(3));
 
